@@ -1,2 +1,2 @@
 # WeatherChartView
-A simple line chart view of weather for android.
+A simple line chart com.kaku.app.view of weather for android.
