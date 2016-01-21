@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2016 Kaku咖枯 [kaku201313@163.com | 3772304@qq.com]
- * All rights reserved.
+ * Copyright (c) 2016 kaku咖枯
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

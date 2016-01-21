@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/build.gradle" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/library/src/main/java/com/kaku/view/LineChartView.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
