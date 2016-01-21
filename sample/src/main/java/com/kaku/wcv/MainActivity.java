@@ -11,9 +11,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         WeatherChartView chartView = (WeatherChartView) findViewById(R.id.line_char);
         // set day
-        chartView.setTempDay(new int[]{1, 2, 5, 6, -1, -2});
+        chartView.setTempDay(new int[]{14, 15, 16, 17, 9, 9});
         // set night
-        chartView.setTempNight(new int[]{-1, -2, 0, -3, -5, -6});
+        chartView.setTempNight(new int[]{7, 5, 9, 10, 3, 2});
         chartView.invalidate();
     }
 }
