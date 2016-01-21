@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 kaku咖枯
+ * Copyright (c) 2016 Kaku咖枯 <kaku201313@163.com | 3772304@qq.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,9 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package com.kaku.library.view;
+package com.kaku.wcv;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -26,7 +27,7 @@ import android.view.View;
 
 import com.kaku.library.R;
 
-// design drawing
+// The plan
 //*-----------------------------------------*
 //                  SPACE                   *
 //*-----------------------------------------*
@@ -60,7 +61,7 @@ import com.kaku.library.R;
  * @author 咖枯
  * @version 1.0 2015/11/06
  */
-public class LineChartView extends View {
+public class WeatherChartView extends View {
 
     /**
      * x轴集合
@@ -148,32 +149,44 @@ public class LineChartView extends View {
     private float mSpace;
 
     @SuppressWarnings("deprecation")
-    public LineChartView(Context context, AttributeSet attrs) {
+    public WeatherChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mDensity = getResources().getDisplayMetrics().density;
-        // 屏幕文字密度
+
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WeatherChartView);
         float densityText = getResources().getDisplayMetrics().scaledDensity;
-        mTextSize = 14 * densityText;
+        mTextSize = a.getDimensionPixelSize(R.styleable.WeatherChartView_textSize,
+                (int) (14 * densityText));
+        mColorDay = a.getColor(R.styleable.WeatherChartView_dayColor,
+                getResources().getColor(R.color.colorAccent));
+        mColorNight = a.getColor(R.styleable.WeatherChartView_nightColor,
+                getResources().getColor(R.color.colorPrimary));
+        mTextColor = a.getColor(R.styleable.WeatherChartView_textColor, Color.WHITE);
+        a.recycle();
+
+        mDensity = getResources().getDisplayMetrics().density;
         mRadius = 3 * mDensity;
         mRadiusToday = 5 * mDensity;
         mSpace = 3 * mDensity;
         mTextSpace = 10 * mDensity;
         mStokeWidth = 2 * mDensity;
-        mColorDay = getResources().getColor(R.color.colorAccent);
-        mColorNight = getResources().getColor(R.color.colorPrimary);
-        mTextColor = Color.WHITE;
 
+        // 设置控件高度，x轴集合
+        setHeightAndXAxis();
+        // 计算y轴集合数值
+        computeYAxisValues();
     }
 
-    public LineChartView(Context context) {
+    public WeatherChartView(Context context) {
         super(context);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        // 设置控件高度，x轴集合
-        setHeightAndXAxis();
+        if (mHeight == 0) {
+            // 设置控件高度，x轴集合
+            setHeightAndXAxis();
+        }
         // 计算y轴集合数值
         computeYAxisValues();
         // 画白天折线图
