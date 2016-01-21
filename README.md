@@ -31,9 +31,9 @@ Dynamic set values of day and night temperature in Activity.
 ```
 WeatherChartView mCharView = (WeatherChartView) findViewById(R.id.line_char);
 // set day
-mCharView.setTempDay(new int[]{1, 2, 5, 6, -1, -2});
+mCharView.setTempDay(new int[]{14, 15, 16, 17, 9, 9});
 // set night
-mCharView.setTempNight(new int[]{-1, -2, 0, -3, -5, -6});
+mCharView.setTempNight(new int[]{7, 5, 9, 10, 3, 2});
 mCharView.invalidate();
 ```
 # Note
