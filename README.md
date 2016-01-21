@@ -1,7 +1,7 @@
 # WeatherChartView
 A simple line chart view of weather for android.
 
-![image](https://github.com/kaku2015/WeatherChartView/sample/src/main/res/raw/show.png)
+![image](https://github.com/kaku2015/WeatherChartView/raw/master/screenshots/show.png)
 
 # Usage
 In the layout file, just introduce the custom View.
