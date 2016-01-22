@@ -169,11 +169,6 @@ public class WeatherChartView extends View {
         mSpace = 3 * mDensity;
         mTextSpace = 10 * mDensity;
         mStokeWidth = 2 * mDensity;
-
-        // 设置控件高度，x轴集合
-        setHeightAndXAxis();
-        // 计算y轴集合数值
-        computeYAxisValues();
     }
 
     public WeatherChartView(Context context) {
